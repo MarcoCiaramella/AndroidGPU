@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
             Double[] input = new Double[256];
             Double[] output = new Double[256];
-            Integer[] params = new Integer[]{1, 2, 3};
+            Double[] params = new Double[]{1.0, 2.0, 3.0};
 
             for (int i = 0; i < input.length; i++) {
                 input[i] = (double) i;

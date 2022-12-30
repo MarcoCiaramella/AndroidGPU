@@ -6,11 +6,11 @@ layout(set = 0, binding = 0) readonly buffer InputBuffer {
     double buff[];
 } input_data;
 
-layout(set = 0, binding = 0) readonly buffer ParamsBuffer {
+layout(set = 0, binding = 1) readonly buffer ParamsBuffer {
     double buff[];
 } params_data;
 
-layout(set = 0, binding = 1) buffer OutputBuffer {
+layout(set = 0, binding = 2) buffer OutputBuffer {
     double buff[];
 } output_data;
 
