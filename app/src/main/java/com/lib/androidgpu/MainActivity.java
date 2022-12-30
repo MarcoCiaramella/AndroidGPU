@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
             Double[] input = new Double[256];
             Double[] output = new Double[256];
+            Integer[] params = new Integer[]{1, 2, 3};
 
             for (int i = 0; i < input.length; i++) {
                 input[i] = (double) i;
             }
-            androidGPU.run(256, 1, 1, 256, 1, 1, output, input);
+            androidGPU.run(256, 1, 1, 256, 1, 1, output, input, params);
             for (double d : output) {
                 Log.i("####", Double.toString(d));
             }
