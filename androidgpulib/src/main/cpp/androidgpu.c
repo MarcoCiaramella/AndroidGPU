@@ -309,7 +309,7 @@ VkDescriptorSet vkGetDescriptorSet(VkDevice device, VkDescriptorSetLayout descri
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_com_app_vulkanandroid_AndroidGPU_build(JNIEnv* env, jobject this, jstring jglsl) {
+Java_com_lib_androidgpulib_AndroidGPU_build(JNIEnv* env, jobject this, jstring jglsl) {
     const char* cglsl = cstring(env, jglsl);
     size_t spirv_len;
     const char* spirv = compile_glsl_to_spirv(cglsl, getStringLength(env, jglsl), "main", &spirv_len);
@@ -318,7 +318,7 @@ Java_com_app_vulkanandroid_AndroidGPU_build(JNIEnv* env, jobject this, jstring j
 }
 
 JNIEXPORT void JNICALL
-Java_com_app_vulkanandroid_AndroidGPU_run(
+Java_com_lib_androidgpulib_AndroidGPU_run(
         JNIEnv* env,
         jobject this,
         jbyteArray spirv,
