@@ -10,7 +10,7 @@ layout(set = 0, binding = 1) readonly buffer ParamsBuffer {
     double buff[];
 } params_data;
 
-layout(set = 0, binding = 2) buffer OutputBuffer {
+layout(set = 0, binding = 2) writeonly buffer OutputBuffer {
     double buff[];
 } output_data;
 

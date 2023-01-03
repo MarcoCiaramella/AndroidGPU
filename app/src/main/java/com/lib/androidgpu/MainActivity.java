@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         try {
-            AndroidGPU androidGPU = new AndroidGPU(getAssets(), "compute.glsl");
+            AndroidGPU androidGPU = new AndroidGPU(this, "compute.glsl");
             /*androidGPU = new AndroidGPU("#version 430\n" +
                     "\n" +
                     "layout (local_size_x = 256) in;\n" +
