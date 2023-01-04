@@ -41,9 +41,15 @@ Instance name (like input_data) is optional depends on member names used.
 
 ## Vulkan vs OpenCL
 While the counterpart OpenCL would be a better choice for GPGPU it is not an Android's standard and could not run on all devices.
-Instead Vulkan is supported by Android's NDK from API level ...
+Instead Vulkan is supported by Android's NDK from API level 24.
 
 ## How to use
-Click the jitpack badge above and follow the instruction on how to import in your project.
+Click the jitpack badge above and follow the instructions on how to import in your project.
 
-See [samples](https://github.com/MarcoCiaramella/AndroidGPU-Samples)
+See [samples](https://github.com/MarcoCiaramella/AndroidGPU-Samples).
+
+## Note
+This was the first time that I approach the Vulkan API and I don't know if already exists something like this out of there for Android. I saw that Android doesn't provide a practical way to use GPU for GPGPU tasks
+so I started implementing a little module to help.
+
+Any suggestion are welcome.
