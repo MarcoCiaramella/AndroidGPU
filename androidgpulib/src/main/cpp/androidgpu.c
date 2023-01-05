@@ -360,6 +360,7 @@ Java_com_lib_androidgpulib_AndroidGPU_run(
     CHECK(vkCreateInstance(&instanceCreateInfo, 0, &instance));
 
     VkPhysicalDevice physicalDevice = vkGetGPUs(instance)[0];
+    // TODO usare tutte le GPU
 
     uint32_t queueFamilyIndex = 0;
     CHECK(vkGetBestComputeQueueNPH(physicalDevice, &queueFamilyIndex));
