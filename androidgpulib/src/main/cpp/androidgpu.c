@@ -359,11 +359,10 @@ Java_com_lib_androidgpulib_AndroidGPU_run(
     VkInstance instance;
     CHECK(vkCreateInstance(&instanceCreateInfo, 0, &instance));
 
-    VkPhysicalDevice physicalDevice = vkGetGPUs(instance)[0];
-    // TODO usare tutte le GPU
+    VkPhysicalDevice gpu = vkGetGPUs(instance)[0];
 
     uint32_t queueFamilyIndex = 0;
-    CHECK(vkGetBestComputeQueueNPH(physicalDevice, &queueFamilyIndex));
+    CHECK(vkGetBestComputeQueueNPH(gpu, &queueFamilyIndex));
 
     const float queuePrioritory = 1.0f;
     const VkDeviceQueueCreateInfo deviceQueueCreateInfo = {
@@ -389,11 +388,11 @@ Java_com_lib_androidgpulib_AndroidGPU_run(
     };
 
     VkDevice device;
-    CHECK(vkCreateDevice(physicalDevice, &deviceCreateInfo, 0, &device));
+    CHECK(vkCreateDevice(gpu, &deviceCreateInfo, 0, &device));
 
     VkPhysicalDeviceMemoryProperties properties;
 
-    vkGetPhysicalDeviceMemoryProperties(physicalDevice, &properties);
+    vkGetPhysicalDeviceMemoryProperties(gpu, &properties);
 
     const VkDeviceSize memorySize = calcMemorySize(env, output, input);
 
