@@ -15,7 +15,7 @@ AndroidGPU reduces this knowledge to the shading language and you only need to w
 Due to the aim above there are a lot of limitations in the shader program. Only a subset of layout interfaces are supported and using a generic compute shader
 that runs fine on Vulkan's compute stage may have an undefined behavior in AndroidGPU.
 
-The only working and tested layout interface has the following format
+GLSL supported version is 430 and the only working and tested layout interface has the following format
 ```glsl
 #version 430
 
