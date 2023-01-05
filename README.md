@@ -4,7 +4,7 @@
 Android module that brings GPGPU to Java level.
 
 ## Based on Vulkan
-AndroidGPU is based on Vulkan's compute stage. It takes a GLSL kernel, compiles it to SPIR-V and runs on the GPUs available on the system.
+AndroidGPU is based on Vulkan's compute stage. It takes a GLSL kernel, compiles it to SPIR-V and runs it on the GPU available on the system.
 
 ## Description
 This module aims to simplify the development of GPU code in the Android environment. Vulkan is available only in the native level and writing a compute shader only
