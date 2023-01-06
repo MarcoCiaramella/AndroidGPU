@@ -45,7 +45,62 @@ Instead Vulkan is supported by Android's NDK from API level 24.
 
 ## How to use
 Click the jitpack badge above and follow the instructions on how to import in your project.
+Write the GLSL code in a file placed in asset folder and pass it to AndroidGPU constructor or pass the code directly.
+For example file compute.glsl in asset folder
+```glsl
+#version 430
 
+layout (local_size_x = 256) in;
+
+layout(set = 0, binding = 0) readonly buffer InputBuffer {
+    double buff[];
+} input_data;
+
+layout(set = 0, binding = 1) readonly buffer ParamsBuffer {
+    double buff[];
+} params_data;
+
+layout(set = 0, binding = 2) writeonly buffer OutputBuffer {
+    double buff[];
+} output_data;
+
+void main() {
+
+    uint gID = gl_GlobalInvocationID.x;
+    if (gID < 256) {
+        output_data.buff[gID] = input_data.buff[gID] + params_data.buff[0] + params_data.buff[1] + params_data.buff[2];
+    }
+}
+```
+and the MainActivity
+```java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        try {
+            AndroidGPU androidGPU = new AndroidGPU(this, "compute.glsl");
+            
+            Double[] input = new Double[256];
+            Double[] output = new Double[256];
+            Double[] params = new Double[]{1.0, 2.0, 3.0};
+
+            for (int i = 0; i < input.length; i++) {
+                input[i] = (double) i;
+            }
+            androidGPU.run(256, 1, 1, 256, 1, 1, output, input, params);
+            for (double d : output) {
+                Log.i("####", Double.toString(d));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 See [samples](https://github.com/MarcoCiaramella/AndroidGPU-Samples).
 
 ## Note
