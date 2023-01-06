@@ -46,6 +46,7 @@ Instead Vulkan is supported by Android's NDK from API level 24.
 ## How to use
 Click the jitpack badge above and follow the instructions on how to import in your project.
 Write the GLSL code in a file placed in asset folder and pass it to AndroidGPU constructor or pass the code directly.
+
 For example file compute.glsl in asset folder
 ```glsl
 #version 430
