@@ -44,8 +44,8 @@ public class AndroidGPU {
      * @param local_size_x must match local_size_x in layout
      * @param local_size_y must match local_size_y in layout
      * @param local_size_z must match local_size_z in layout
-     * @param output a buffer for the output
-     * @param input one or more buffers for input data
+     * @param output a buffer for the output. Object must be Integer, Float or Double.
+     * @param input one or more buffers for input data. Object must be Integer, Float or Double.
      * @throws Exception
      */
     public void run(int dim_x,
