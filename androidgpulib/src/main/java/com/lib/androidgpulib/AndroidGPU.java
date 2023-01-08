@@ -1,5 +1,6 @@
 package com.lib.androidgpulib;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetManager;
 
@@ -38,6 +39,8 @@ public class AndroidGPU {
 
     /**
      * Runs the GLSL code.
+     * @param activity
+     * @param callback
      * @param dim_x data dimension along X
      * @param dim_y data dimension along Y
      * @param dim_z data dimension along Z
@@ -48,7 +51,9 @@ public class AndroidGPU {
      * @param input one or more buffers for input data. Object must be Integer, Float or Double.
      * @throws Exception
      */
-    public void run(int dim_x,
+    public void run(Activity activity,
+                    Runnable callback,
+                    int dim_x,
                     int dim_y,
                     int dim_z,
                     int local_size_x,
@@ -57,7 +62,10 @@ public class AndroidGPU {
                     Object[] output,
                     Object[]... input) throws Exception {
         checkDataTypes(output, input);
-        run(spirv, dim_x, dim_y, dim_z, local_size_x, local_size_y, local_size_z, output, input);
+        new Thread(() -> {
+            AndroidGPU.this.run(spirv, dim_x, dim_y, dim_z, local_size_x, local_size_y, local_size_z, output, input);
+            activity.runOnUiThread(callback);
+        }).start();
     }
 
     private void checkAndBuild(String glsl) throws Exception {

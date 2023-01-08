@@ -36,17 +36,21 @@ public class MainActivity extends AppCompatActivity {
                     "    }\n" +
                     "}");*/
 
-            Double[] input = new Double[256];
-            Double[] output = new Double[256];
+            int dim = 1024;
+            Double[] input = new Double[dim];
+            Double[] output = new Double[dim];
             Double[] params = new Double[]{1.0, 2.0, 3.0};
 
             for (int i = 0; i < input.length; i++) {
                 input[i] = (double) i;
             }
-            androidGPU.run(256, 1, 1, 256, 1, 1, output, input, params);
-            for (double d : output) {
-                Log.i("####", Double.toString(d));
-            }
+            androidGPU.run(this, () -> {
+                for (double d : output) {
+                    Log.i("####", Double.toString(d));
+                }
+                Log.i("####", "Done");
+                }, dim, 1, 1, 256, 1, 1, output, input, params);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
