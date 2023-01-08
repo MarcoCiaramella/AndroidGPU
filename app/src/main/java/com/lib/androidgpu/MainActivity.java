@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 for (double d : output) {
                     Log.i("####", Double.toString(d));
                 }
-                Log.i("####", "Done");
-                }, input.length, 1, 1, 256, 1, 1, output, input, params);
+                }, dim, 1, 1, 256, 1, 1, output, input, params);
 
         } catch (Exception e) {
             e.printStackTrace();
