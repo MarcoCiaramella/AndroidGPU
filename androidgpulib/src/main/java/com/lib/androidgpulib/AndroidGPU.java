@@ -40,7 +40,7 @@ public class AndroidGPU {
     /**
      * Runs the GLSL code.
      * @param activity
-     * @param callback
+     * @param callback function called on UI thread when GPU task ends
      * @param dim_x data dimension along X
      * @param dim_y data dimension along Y
      * @param dim_z data dimension along Z
