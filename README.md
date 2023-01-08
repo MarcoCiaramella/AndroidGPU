@@ -111,4 +111,4 @@ See [samples](https://github.com/MarcoCiaramella/AndroidGPU-Samples).
 This was the first time that I approach the Vulkan API and I don't know if already exists something like this out of there for Android. I saw that Android doesn't provide a practical way to use GPU for GPGPU tasks
 so I started implementing a little module to help.
 
-Any suggestion are welcome.
+Any suggestions are welcome.
