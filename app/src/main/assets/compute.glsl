@@ -17,7 +17,7 @@ layout(set = 0, binding = 2) writeonly buffer OutputBuffer {
 void main() {
 
     uint gID = gl_GlobalInvocationID.x;
-    if (gID < 256) {
+    if (gID < 1024) {
         output_data.buff[gID] = input_data.buff[gID] + params_data.buff[0] + params_data.buff[1] + params_data.buff[2];
     }
 }
