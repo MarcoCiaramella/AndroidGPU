@@ -94,9 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 input[i] = (double) i;
             }
             androidGPU.run(this, () -> {
-                for (double d : output) {
-                    Log.i("####", Double.toString(d));
-                }
+                Log.i("####", "Done");
             }, dim, 1, 1, 256, 1, 1, output, input, params);
 
         } catch (Exception e) {
