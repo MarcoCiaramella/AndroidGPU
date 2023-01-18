@@ -16,7 +16,7 @@ public class AndroidGPU {
     private static final String GLSL_VERSION = "#version 430";
 
     /**
-     *
+     * Constructor. Builds the GLSL shader.
      * @param context
      * @param assetGlsl file from assets folder with GLSL code
      * @throws Exception
@@ -29,7 +29,7 @@ public class AndroidGPU {
     }
 
     /**
-     *
+     * Constructor. Builds the GLSL shader.
      * @param glsl GLSL code as string
      * @throws Exception
      */
