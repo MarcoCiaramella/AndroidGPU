@@ -75,7 +75,7 @@ public class AndroidGPU {
 
     private void checkVersion(String glsl) throws Exception {
         if (!glsl.startsWith(GLSL_VERSION)) {
-            throw new Exception("GLSL version not specified or invalid. Must be " + GLSL_VERSION);
+            throw new Exception("GLSL version not specified or invalid. First line must be " + GLSL_VERSION);
         }
     }
 
