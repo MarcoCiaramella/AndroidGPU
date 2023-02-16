@@ -11,7 +11,8 @@
 #include <string.h>
 #include <math.h>
 
-#define CHECK(result) if (VK_SUCCESS != (result)) { fprintf(stderr, "Failure at %u %s\n", __LINE__, __FILE__); exit(-1); }
+
+#define CHECK(result) if (VK_SUCCESS != (result)) { LOGE("Failure at %u %s\n", __LINE__, __FILE__); exit(-1); }
 
 
 
@@ -334,6 +335,8 @@ Java_com_lib_androidgpulib_AndroidGPU_run(
     if (!initVulkan()) {
         exit(-1);
     }
+
+    CHECK(VK_ERROR_DEVICE_LOST);
 
     const VkApplicationInfo applicationInfo = {
             VK_STRUCTURE_TYPE_APPLICATION_INFO,
