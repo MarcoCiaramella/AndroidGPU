@@ -336,8 +336,6 @@ Java_com_lib_androidgpulib_AndroidGPU_run(
         exit(-1);
     }
 
-    CHECK(VK_ERROR_DEVICE_LOST);
-
     const VkApplicationInfo applicationInfo = {
             VK_STRUCTURE_TYPE_APPLICATION_INFO,
             0,
